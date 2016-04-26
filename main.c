@@ -41,6 +41,21 @@ int		frac_type(int ac, char **av)
 void	init_env(t_env *e, int ac, char **av)
 {
 	e->ftype = frac_type(ac, av);
+	e->mlx = mlx_init();
+	// if (e->ftype == 1)
+	// {
+
+	// }	//ft_mand();
+	// else if (e->ftype == 2)
+	// {
+
+	// }	//ft_julia();
+	// else if (e->ftype == 3)
+	// {
+
+	// }	//ft_newtn();
+	e->win = mlx_new_window(e->mlx, 1000, 1000, "Fract'ol");
+	mlx_loop(e->mlx);
 }
 
 int main(int ac, char **av)
@@ -48,5 +63,6 @@ int main(int ac, char **av)
 	t_env e;
 
 	init_env(&e, ac, av);
+
 	return(0);
 }
