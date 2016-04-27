@@ -36,6 +36,14 @@ typedef	struct s_env
 	float		x2;
 	float		y1;
 	float		y2;
+	float		z_r;
+	float		z_i;
+	float		c_r;
+	float		c_i;
+	float		i;
+	float		tmp;
+	float		imgx;
+	float		imgy;
 
 	int			ftype;
 	int			bpp;
@@ -49,7 +57,9 @@ typedef	struct s_env
 	void		*img;
 }				t_env;
 
-void	error_arg(int n);
+void	init_julia(t_env *e);
+void	init_env(t_env *e, int ac, char **av);
 int		frac_type(int ac, char **av);
+void	init_mandle(t_env *e);
 
 #endif

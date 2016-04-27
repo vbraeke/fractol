@@ -14,7 +14,7 @@ NAME = fractol
 
 FLAGS =	-lmlx -framework OpenGl -framework AppKit
 
-SRC = main.c libft/libft.a
+SRC = main.c libft/libft.a julia.c init.c mandle.c
 
 $(NAME):
 	@make -C libft/
