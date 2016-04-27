@@ -22,8 +22,8 @@ int	key_event(int keycode, void *param)
 void	init_mlx(t_env *e)
 {
 	e->mlx = mlx_init();
-	e->img = mlx_new_image(e->mlx, 1000, 800);
-	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
+	//e->img = mlx_new_image(e->mlx, 1000, 800);
+	//e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
 	e->win = mlx_new_window(e->mlx, 1000, 800, "Fractol");
 }
 
@@ -34,14 +34,15 @@ void	init_env(t_env *e, int ac, char **av)
 	if (e->ftype == 2)
 	{
 		init_julia(e);
+		//mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+		mlx_key_hook(e->win, key_event, 0);
 	}
-	else if (e->ft_type == 1)
+	else if (e->ftype == 1)
 	{
-		init_mand(e)
+		init_mandle(e);
+		//mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+		mlx_key_hook(e->win, key_event, 0);
 	}
-	init_mlx(e);
-	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-	mlx_key_hook(e->win, key_event, 0);
 	mlx_loop(e->mlx);
 }
 

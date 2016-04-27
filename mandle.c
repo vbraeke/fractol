@@ -12,32 +12,20 @@
 
 #include "all.h"
 
-void	init_mandle(t_env *e)
-{
-	e->x1 = -2.1;
-	e->x2 = 0.6;
-	e->y1 = -1.2;
-	e->y2 = 1.2;
-	e->zoom = 100;
-	e->max = 50;
-}
 
 void	draw_mandle(t_env *e)
 {
-	float x;
-	float y;
-
 	e->imgx = (e->x2 - e->x1) * e->zoom;
 	e->imgy = (e->y2 - e->y1) * e->zoom;
-
-	x = 0;
-	y = 0;
-	while (x < e->imgx)
+	e->x = 0;
+	
+	while (e->x < e->imgx)
 	{
-		while (y < e->imgy)
+		e->y = 0;
+		while (e->y < e->imgy)
 		{
-			e->c_r = x / e->zoom + x1;
-			e->c_i = y / zoom + y1
+			e->c_r = e->x / e->zoom + e->x1;
+			e->c_i = e->y / e->zoom + e->y1;
 			e->z_i = 0;
 			e->z_r = 0;
 			e->i = 0;
@@ -47,18 +35,26 @@ void	draw_mandle(t_env *e)
 				e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
 				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 				e->i++;
-			}
-			if()
-			{
+				if(e->i == e->max)
+				{
+					printf("check\n");
+					//mlx_pixel_put(e->mlx, e->win, e->x, e->y, 2147483647);
+				}
 
 			}
-			else if()
-			{
-
-			}
-			y++;
+			e->y++;
 		}
-		x++;
+		e->x++;
 	}
 }
 
+void	init_mandle(t_env *e)
+{
+	e->x1 = -2.1;
+	e->x2 = 0.6;
+	e->y1 = -1.2;
+	e->y2 = 1.2;
+	e->zoom = 100;
+	e->max = 50;
+	draw_mandle(e);
+}

@@ -44,17 +44,23 @@ typedef	struct s_env
 	float		tmp;
 	float		imgx;
 	float		imgy;
+	float		x;
+	float		y;
 
 	int			ftype;
 	int			bpp;
 	int 		len;
 	int			endian;
+	int 		r;
+	int 		g;
+	int 		b;
 
 	char		*data;
 
 	void		*win;
 	void		*mlx;
 	void		*img;
+
 }				t_env;
 
 void	init_julia(t_env *e);
