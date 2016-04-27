@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = fractol
 
 FLAGS =	-lmlx -framework OpenGl -framework AppKit

@@ -30,16 +30,26 @@
 
 typedef	struct s_env
 {
+	float		zoom;
+	float		max;
+	float		x1;
+	float		x2;
+	float		y1;
+	float		y2;
+
 	int			ftype;
+	int			bpp;
+	int 		len;
+	int			endian;
+
+	char		*data;
+
 	void		*win;
 	void		*mlx;
+	void		*img;
 }				t_env;
-
-typedef struct	s_data
-{
-
-}				t_data;
 
 void	error_arg(int n);
 int		frac_type(int ac, char **av);
+
 #endif
