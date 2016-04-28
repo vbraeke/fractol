@@ -14,14 +14,14 @@
 
 void	set_julia(t_env *e)
 {
-	e->imgx = (e->x2 - e->x1) * e->zoom;
-	e->imgy = (e->y2 - e->y1) * e->zoom;
-	e->x = 0;
+	e->imgx = 800;
+	e->imgy = 800;
 	
+	e->x = 0;
 	while (e->x < e->imgx)
 	{
 
-		e->y = 0;
+			e->y = 0;
 		while (e->y < e->imgy)
 		{
 			e->c_r = 0.285;
@@ -48,8 +48,8 @@ void	set_julia(t_env *e)
 				else
 				{
 					e->r = 0;
-					e->g = 0;
-					e->b = e->i * 255 / e->max;
+					e->g = e->i * 220 / e->max;
+					e->b = 0;
 					draw_img(e);
 					e->r = 0;
 					e->g = 0;
@@ -69,7 +69,11 @@ void	init_julia(t_env *e)
 	e->x2 = 1;
 	e->y1 = -1.2;
 	e->y2 = 1.2;
-	e->zoom = 300;
+	e->zoom = 500;
 	e->max = 150;
+	e->pos_x = 0;
+	e->pos_y = 0;
+
+	
 	set_julia(e);
 }

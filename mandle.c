@@ -13,7 +13,7 @@
 #include "all.h"
 
 
-void	set_mandle(t_env *e)
+void	draw_mandle(t_env *e)
 {
 	e->imgx = (e->x2 - e->x1) * e->zoom;
 	e->imgy = (e->y2 - e->y1) * e->zoom;
@@ -73,5 +73,5 @@ void	init_mandle(t_env *e)
 	e->y2 = 1.2;
 	e->zoom = 260;
 	e->max = 50;
-	set_mandle(e);
+	draw_mandle(e);
 }

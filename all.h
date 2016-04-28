@@ -63,6 +63,9 @@ typedef	struct s_env
 	void		*mlx;
 	void		*img;
 
+	int 		pos_x;
+	int 		pos_y;
+
 }				t_env;
 
 void	init_julia(t_env *e);

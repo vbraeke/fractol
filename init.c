@@ -15,14 +15,21 @@
 int	key_event(int keycode, t_env *e)
 {
 	if (keycode == ESC)
+	{
+		ft_putendl("FRACT'OL QUIT");
 		exit(0);
-	(keycode == DOWN) ? e->max-- : 0;
-	(keycode == UP) ? e->max++ : 0;
-	(keycode == LESS) ? e->zoom-- : 0;
-	(keycode == MORE) ? e->zoom++ : 0;
+	}
+	(keycode == 86) ? e->max+= 5 : 0;
+	(keycode == 84) ? e->max-= 5 : 0;
+	(keycode == LESS) ? e->zoom -= 30 : 0;
+	(keycode == MORE) ? e->zoom += 30 : 0;
+	(keycode == DOWN) ? e->y += 10 : 0;
+	(keycode == LEFT) ? e->x -= 10 : 0;
+	(keycode == UP) ? e->y -= 10 : 0;
+	(keycode == RIGHT) ? e->x += 10 : 0;
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
-	set_julia(e);
+	(e->ftype == 1) ? draw_mandle(e) : set_julia(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }
@@ -56,14 +63,14 @@ void	init_env(t_env *e, int ac, char **av)
 	if (e->ftype == 2)
 	{
 		init_julia(e);
-		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-		mlx_key_hook(e->win, key_event, e);
+		mlx_put_image_to_window(e->mlx, e->win, e->img, e->pos_x, e->pos_y);
+		mlx_hook(e->win, 2, 1L << 0, key_event, e);
 	}
 	else if (e->ftype == 1)
 	{
 		init_mandle(e);
 		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
-		mlx_key_hook(e->win, key_event, e);
+		mlx_hook(e->win, 2, 1L << 0, key_event, e);
 	}
 	mlx_loop(e->mlx);
 }
