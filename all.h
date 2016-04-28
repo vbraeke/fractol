@@ -27,6 +27,8 @@
 # define DOWN 125
 # define ESC 53
 # define SPACE 49
+# define MORE 69
+# define LESS 78
 
 typedef	struct s_env
 {
@@ -66,6 +68,10 @@ typedef	struct s_env
 void	init_julia(t_env *e);
 void	init_env(t_env *e, int ac, char **av);
 int		frac_type(int ac, char **av);
+void	set_mandle(t_env *e);
+void	set_julia(t_env *e);
+void	draw_img(t_env *e);
+void	draw_mandle(t_env *e);
 void	init_mandle(t_env *e);
 
 #endif

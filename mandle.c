@@ -13,7 +13,7 @@
 #include "all.h"
 
 
-void	draw_mandle(t_env *e)
+void	set_mandle(t_env *e)
 {
 	e->imgx = (e->x2 - e->x1) * e->zoom;
 	e->imgy = (e->y2 - e->y1) * e->zoom;
@@ -37,10 +37,25 @@ void	draw_mandle(t_env *e)
 				e->i++;
 				if(e->i == e->max)
 				{
-					printf("check\n");
-					//mlx_pixel_put(e->mlx, e->win, e->x, e->y, 2147483647);
+					e->r = 0;
+					e->g = 0;
+					e->b = 0;
+					draw_img(e);
+					e->r = 0;
+					e->g = 0;
+					e->b = 0;
 				}
-
+				else
+				{
+					e->r = 0;
+					e->g = 0;
+					e->b = e->i * 255 / e->max;
+					draw_img(e);
+					e->r = 0;
+					e->g = 0;
+					e->b = 0;
+				
+				}
 			}
 			e->y++;
 		}
@@ -48,13 +63,15 @@ void	draw_mandle(t_env *e)
 	}
 }
 
+//dessiner avec couleur rgb(0, 0, i*255/iterations_max) le pixel de coordonné (x; x)
+
 void	init_mandle(t_env *e)
 {
 	e->x1 = -2.1;
-	e->x2 = 0.6;
+	e->x2 = 2.1;
 	e->y1 = -1.2;
 	e->y2 = 1.2;
-	e->zoom = 100;
+	e->zoom = 260;
 	e->max = 50;
-	draw_mandle(e);
+	set_mandle(e);
 }
