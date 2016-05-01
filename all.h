@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   all.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 17:42:26 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/04/26 17:42:28 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/01 01:56:53 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define ALL_H
 
 # include "libft.h"
-# include "mlx.h"
+# include <mlx.h>
+#include <X11/Xlib.h>
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -42,7 +43,7 @@ typedef	struct s_env
 	float		z_i;
 	float		c_r;
 	float		c_i;
-	float		i;
+	int		i;
 	float		tmp;
 	float		imgx;
 	float		imgy;

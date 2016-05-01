@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:50:06 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/04/27 17:50:07 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/01 01:57:17 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	draw_mandle(t_env *e)
 {
-	e->imgx = (e->x2 - e->x1) * e->zoom;
-	e->imgy = (e->y2 - e->y1) * e->zoom;
+	e->imgx = 1000;
+	e->imgy = 1000;
 	e->x = 0;
 	
 	while (e->x < e->imgx)
@@ -37,13 +37,8 @@ void	draw_mandle(t_env *e)
 				e->i++;
 				if(e->i == e->max)
 				{
-					e->r = 0;
-					e->g = 0;
-					e->b = 0;
+	
 					draw_img(e);
-					e->r = 0;
-					e->g = 0;
-					e->b = 0;
 				}
 				else
 				{
@@ -72,6 +67,6 @@ void	init_mandle(t_env *e)
 	e->y1 = -1.2;
 	e->y2 = 1.2;
 	e->zoom = 260;
-	e->max = 50;
+	e->max = 40;
 	draw_mandle(e);
 }

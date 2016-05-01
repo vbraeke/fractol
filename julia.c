@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 15:56:28 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/04/27 15:56:30 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/01 02:01:12 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,27 @@ void	set_julia(t_env *e)
 					e->b = 0;
 				}
 				else
-				{
-					e->r = 0;
-					e->g = e->i * 220 / e->max;
-					e->b = 0;
-					draw_img(e);
-					e->r = 0;
-					e->g = 0;
-					e->b = 0;
+				{	
+					if (e->i % 2 == 0 )
+					{
+						e->r = e->i * 30 / e->max;
+						e->g = e->i * 100 / e->max;
+						e->b = e->i * 30 / e->max;
+						draw_img(e);
+						e->r = 0;
+						e->g = 0;
+						e->b = 0;
+					}	
+					else
+					{
+						e->r = e->i * 100 / e->max;
+						e->g = e->i * 100 / e->max;
+						e->b = e->i * 100 / e->max;
+						draw_img(e);
+						e->r = 0;
+						e->g = 0;
+						e->b = 0;
+					}
 				
 				}
 			}
@@ -65,15 +78,16 @@ void	set_julia(t_env *e)
 
 void	init_julia(t_env *e)
 {
+	e->r = e->i * 100 / e->max;
+	e->g = e->i * 100 / e->max;
+	e->b = e->i * 100 / e->max;
 	e->x1 = -1;
 	e->x2 = 1;
-	e->y1 = -1.2;
+	e->y1 = -2;
 	e->y2 = 1.2;
-	e->zoom = 500;
+	e->zoom = 300;
 	e->max = 150;
 	e->pos_x = 0;
 	e->pos_y = 0;
-
-	
 	set_julia(e);
 }

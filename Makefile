@@ -12,7 +12,9 @@
 
 NAME = fractol
 
-FLAGS =	-lmlx -framework OpenGl -framework AppKit
+FLAGS = -lmlx -lX11 -lXext                          
+
+
 
 SRC = main.c libft/libft.a julia.c init.c mandle.c
 

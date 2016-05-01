@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 15:57:07 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/04/27 15:57:08 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/01 02:08:30 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ int	key_event(int keycode, t_env *e)
 	}
 	(keycode == 86) ? e->max+= 5 : 0;
 	(keycode == 84) ? e->max-= 5 : 0;
-	(keycode == LESS) ? e->zoom -= 30 : 0;
-	(keycode == MORE) ? e->zoom += 30 : 0;
-	(keycode == DOWN) ? e->y += 10 : 0;
+	// (keycode == LESS) ? e->zoom -= 30 : 0;
+	// (keycode == MORE) ? e->zoom += 30 : 0;
+	(keycode == DOWN) ? e->zoom -= 30 : 0;
 	(keycode == LEFT) ? e->x -= 10 : 0;
-	(keycode == UP) ? e->y -= 10 : 0;
+	(keycode == UP) ? e->zoom += 30 : 0;
 	(keycode == RIGHT) ? e->x += 10 : 0;
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
-	(e->ftype == 1) ? draw_mandle(e) : set_julia(e);
+	(e->ftype == 1) ? draw_mandle(e) : 0;
+	(e->ftype == 2) ? set_julia(e) : draw_tricorne(e);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }
@@ -48,9 +49,9 @@ void	draw_img(t_env *e)
 void	init_mlx(t_env *e)
 {
 	e->mlx = mlx_init();
-	e->img = mlx_new_image(e->mlx, 600, 800);
+	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
-	e->win = mlx_new_window(e->mlx, 700, 700, "Fractol");
+	e->win = mlx_new_window(e->mlx, 500, 500, "Fractol");
 }
 
 void	init_env(t_env *e, int ac, char **av)
@@ -69,6 +70,12 @@ void	init_env(t_env *e, int ac, char **av)
 	else if (e->ftype == 1)
 	{
 		init_mandle(e);
+		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+		mlx_hook(e->win, 2, 1L << 0, key_event, e);
+	}
+	else if (e->ftype == 3)
+	{
+		init_tricorne(e);
 		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 		mlx_hook(e->win, 2, 1L << 0, key_event, e);
 	}
