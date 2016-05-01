@@ -15,19 +15,23 @@
 void	init_tricorne(t_env *e)
 {
 	e->x1 = -2.1;
-	e->x2 = 0.6;
-	e->y1 = -1.2;
-	e->y2 = 1.2;
+	e->x2 = 2.6;
+	e->y1 = -2.2;
+	e->y2 = 2.2;
 	e->zoom = 200;
-	e->max = 50;
+	e->max = 30;
+	draw_tricorne(e);
 }
+
+
+
 
 void	draw_tricorne(t_env *e)
 {
 	e->x = 0;
 	e->imgx = 500;
 	e->imgy = 500;
-	printf("checl\n");
+
 	while (e->x < e->imgx)
 	{
 		e->y = 0;
@@ -41,24 +45,27 @@ void	draw_tricorne(t_env *e)
 			while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
 			{
 				e->tmp = e->z_r;
-				e->z_r = (e->z_r * e->z_r) - (e->z_i * e->z_i)
-				+ e->c_r;
-				e->z_i = -(2 * e->z_i * e->tmp + e->c_i);
+				e->z_r = fabs((e->z_r * e->z_r) - (e->z_i * e->z_i)
+				+ e->c_r);
+				e->z_i = fabs(2 * e->z_i * e->tmp + e->c_i);
 				e->i++;
 				if (e->i == e->max)
 				{
 				
-					// e->b = e->i * 255 / e->max;
-					// e->r += e->i * 255 / e->max;
-					// e->g += e->i * 255 / e->max;
+					e->b = e->i * 255 / e->max;
+					e->r = 0;
+					e->g = e->i * 255 / e->max;
 					draw_img(e);
+					e->b = 0;
+					 e->r = 0;
+					 e->g = 0;
 				
 				}
 				else 
 				{
-					e->b = e->i * 255 / e->max;
-					e->r += e->i * 255 / e->max;
-					e->g += e->i * 255 / e->max;
+					e->b = e->i * 150 / e->max;
+					e->r = 0;
+					e->g = 0;
 					draw_img(e);
 					e->b = 0;
 					e->r = 0;

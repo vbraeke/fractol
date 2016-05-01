@@ -6,7 +6,7 @@
 /*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 17:42:26 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/05/01 01:56:53 by mikus            ###   ########.fr       */
+/*   Updated: 2016/05/01 18:19:06 by vbraeke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 # include <mlx.h>
-#include <X11/Xlib.h>
+//#include <X11/Xlib.h>
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -43,7 +43,7 @@ typedef	struct s_env
 	float		z_i;
 	float		c_r;
 	float		c_i;
-	int		i;
+	int			i;
 	float		tmp;
 	float		imgx;
 	float		imgy;
@@ -77,5 +77,7 @@ void	set_julia(t_env *e);
 void	draw_img(t_env *e);
 void	draw_mandle(t_env *e);
 void	init_mandle(t_env *e);
+void	init_tricorne(t_env *e);
+void	draw_tricorne(t_env *e);
 
 #endif
