@@ -15,8 +15,8 @@
 
 void	draw_mandle(t_env *e)
 {
-	e->imgx = 1000;
-	e->imgy = 1000;
+	e->imgx = 500;
+	e->imgy = 500;
 	e->x = 0;
 	
 	while (e->x < e->imgx)
@@ -58,15 +58,13 @@ void	draw_mandle(t_env *e)
 	}
 }
 
-//dessiner avec couleur rgb(0, 0, i*255/iterations_max) le pixel de coordonné (x; x)
-
 void	init_mandle(t_env *e)
 {
 	e->x1 = -2.1;
-	e->x2 = 2.1;
+	e->x2 = 0.6;
 	e->y1 = -1.2;
 	e->y2 = 1.2;
-	e->zoom = 260;
+	e->zoom = 200;
 	e->max = 40;
 	draw_mandle(e);
 }

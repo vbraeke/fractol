@@ -16,7 +16,7 @@ FLAGS = -lmlx  -framework OpenGL -framework AppKit
 
 
 
-SRC = main.c libft/libft.a julia.c init.c mandle.c test.c
+SRC = main.c libft/libft.a julia.c init.c mandle.c test.c third.c
 
 $(NAME):
 	@make -C libft/

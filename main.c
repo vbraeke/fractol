@@ -6,7 +6,7 @@
 /*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 17:41:49 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/04/27 20:20:51 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/02 16:45:13 by vbraeke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	error_arg(int n)
 		ft_putstr("Incorrect paramater\n");
 	ft_putstr("FRACT'OL : Please reboot this program with one");
 	ft_putstr(" of the following parameter :\n");
-	ft_putstr("M for Mandelbrot\nJ for Julia\nN for Newton\n");
+	ft_putstr("M for Mandelbrot\nJ for Julia\nB for Boat\nM for a mix of Mandelbrot and Newton");
 	exit(EXIT_FAILURE);
 }
 
@@ -32,8 +32,10 @@ int		frac_type(int ac, char **av)
 		return (1);
 	else if (av[1][0] == 'J')
 		return (2);
-	else if (av[1][0] == 'N')
+	else if (av[1][0] == 'B')
 		return (3);
+	else if (av[1][0] == 'T')
+		return (4);
 	error_arg(1);
 	return (0);
 }

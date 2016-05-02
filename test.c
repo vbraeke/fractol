@@ -12,7 +12,7 @@
 
 #include "all.h"
 
-void	init_tricorne(t_env *e)
+void	init_boat(t_env *e)
 {
 	e->x1 = -2.1;
 	e->x2 = 2.6;
@@ -20,13 +20,10 @@ void	init_tricorne(t_env *e)
 	e->y2 = 2.2;
 	e->zoom = 200;
 	e->max = 30;
-	draw_tricorne(e);
+	draw_boat(e);
 }
 
-
-
-
-void	draw_tricorne(t_env *e)
+void	draw_boat(t_env *e)
 {
 	e->x = 0;
 	e->imgx = 500;

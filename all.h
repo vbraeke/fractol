@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <mlx.h>
+# include "key.h"
 //#include <X11/Xlib.h>
 
 # include <stdio.h>
@@ -30,6 +31,8 @@
 # define SPACE 49
 # define MORE 69
 # define LESS 78
+# define MUL 67
+# define DIV 75
 
 typedef	struct s_env
 {
@@ -77,7 +80,9 @@ void	set_julia(t_env *e);
 void	draw_img(t_env *e);
 void	draw_mandle(t_env *e);
 void	init_mandle(t_env *e);
-void	init_tricorne(t_env *e);
-void	draw_tricorne(t_env *e);
+void	init_boat(t_env *e);
+void	draw_boat(t_env *e);
+void	init_mix(t_env *e);
+void	draw_mix(t_env *e);
 
 #endif
