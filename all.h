@@ -6,7 +6,7 @@
 /*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 17:42:26 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/05/02 23:33:18 by mikus            ###   ########.fr       */
+/*   Updated: 2016/05/03 00:58:54 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,18 @@ typedef	struct s_env
 	float		z_i;
 	float		c_r;
 	float		c_i;
-	int			i;
+
 	float		tmp;
 	float		imgx;
 	float		imgy;
 	float		x;
 	float		y;
 
+	int 		ptr_x;
+	int 		ptr_y;
+	int 		pos_x;
+	int 		pos_y;
+	int			i;
 	int			ftype;
 	int			bpp;
 	int 		len;
@@ -67,8 +72,7 @@ typedef	struct s_env
 	void		*mlx;
 	void		*img;
 
-	int 		pos_x;
-	int 		pos_y;
+
 
 }				t_env;
 
@@ -89,8 +93,9 @@ void	ft_connectb(t_env *e);
 void	ft_connectj(t_env *e);
 int		frac_type(int ac, char **av);
 int		ft_mouse(int button, int a, int b, t_env *e);
-int 	motion_notif(int x, int y, t_env *e;
+int 	motion_notif(int x, int y, t_env *e);
 int		key_event(int keycode, t_env *e);
 void	init_mj(t_env *e);
+void	ft_opt();
 
 #endif
