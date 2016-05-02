@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: mikus <mikus@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 17:41:41 by vbraeke           #+#    #+#              #
-#    Updated: 2016/05/01 18:22:25 by vbraeke          ###   ########.fr        #
+#    Updated: 2016/05/02 23:24:56 by mikus            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -lmlx  -framework OpenGL -framework AppKit
 
 
 
-SRC = main.c libft/libft.a julia.c init.c mandle.c test.c third.c
+SRC = main.c libft/libft.a julia.c init.c mandle.c test.c third.c event.c
 
 $(NAME):
 	@make -C libft/

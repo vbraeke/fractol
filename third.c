@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   third.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbraeke <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/01 18:33:42 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/05/01 18:33:44 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/02 23:16:20 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,35 @@ void	draw_mix(t_env *e)
 			e->z_i = 0;
 			e->z_r = 0;
 			e->i = 0;
-			while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
-			{
-				e->tmp = e->z_r;
-				e->z_r = -(e->z_r * e->z_r - e->z_i * e->z_i) + e->c_r;
-				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
-				e->i++;
-				if(e->i == e->max)
-				{
-	
-					draw_img(e);
-				}
-				else
-				{
-					e->r = 0;
-					e->g = 0;
-					e->b = e->i * 255 / e->max;
-					draw_img(e);
-					e->r = 0;
-					e->g = 0;
-					e->b = 0;
-				}
-			}
+			ft_connectt(e);
 			e->y++;
 		}
 		e->x++;
+	}
+}
+
+void	ft_connectt(t_env *e)
+{
+	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
+	{
+		e->tmp = e->z_r;
+		e->z_r = -(e->z_r * e->z_r - e->z_i * e->z_i) + e->c_r;
+		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
+		e->i++;
+		if(e->i == e->max)
+		{
+
+			draw_img(e);
+		}
+		else
+		{
+			e->r = 0;
+			e->g = 0;
+			e->b = e->i * 255 / e->max;
+			draw_img(e);
+			e->r = 0;
+			e->g = 0;
+			e->b = 0;
+		}
 	}
 }

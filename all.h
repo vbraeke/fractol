@@ -6,7 +6,7 @@
 /*   By: mikus <mikus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 17:42:26 by vbraeke           #+#    #+#             */
-/*   Updated: 2016/05/01 18:19:06 by vbraeke          ###   ########.fr       */
+/*   Updated: 2016/05/02 23:33:18 by mikus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 # include <mlx.h>
 # include "key.h"
-//#include <X11/Xlib.h>
+#include <X11/Xlib.h>
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -74,7 +74,6 @@ typedef	struct s_env
 
 void	init_julia(t_env *e);
 void	init_env(t_env *e, int ac, char **av);
-int		frac_type(int ac, char **av);
 void	set_mandle(t_env *e);
 void	set_julia(t_env *e);
 void	draw_img(t_env *e);
@@ -84,5 +83,14 @@ void	init_boat(t_env *e);
 void	draw_boat(t_env *e);
 void	init_mix(t_env *e);
 void	draw_mix(t_env *e);
+void	ft_connectm(t_env *e);
+void	ft_connectt(t_env *e);
+void	ft_connectb(t_env *e);
+void	ft_connectj(t_env *e);
+int		frac_type(int ac, char **av);
+int		ft_mouse(int button, int a, int b, t_env *e);
+int 	motion_notif(int x, int y, t_env *e;
+int		key_event(int keycode, t_env *e);
+void	init_mj(t_env *e);
 
 #endif

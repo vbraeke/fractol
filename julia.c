@@ -28,41 +28,46 @@ void	set_julia(t_env *e)
 			e->z_i = e->y / e->zoom + e->y1;
 			e->z_r = e->x / e->zoom + e->x1;
 			e->i = 0;
-			while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
-			{
-				e->tmp = e->z_r;
-				e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
-				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
-				e->i++;
-				if(e->i == e->max)
-				{
-				
-					draw_img(e);
-
-				}
-				else
-				{	
-					if (e->i % 2 == 0 )
-					{
-						e->r = 0;
-						e->g = e->i * 180 / e->max;
-						e->b = e->i * 30 / e->max;
-						draw_img(e);
-		
-					}	
-					else
-					{
-						e->r = 1;
-						e->g = 1;
-						e->b = 1;
-						draw_img(e);
-
-					}
-				}
-			}
+			ft_connectj(e);
 			e->y++;
 		}
 		e->x++;
+	}
+}
+
+void	ft_connectj(t_env *e)
+{
+	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
+	{
+		e->tmp = e->z_r;
+		e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
+		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
+		e->i++;
+		if(e->i == e->max)
+		{
+		
+			draw_img(e);
+
+		}
+		else
+		{	
+			if (e->i % 2 == 0 )
+			{
+				e->r = 0;
+				e->g = e->i * 180 / e->max;
+				e->b = e->i * 30 / e->max;
+				draw_img(e);
+
+			}	
+			else
+			{
+				e->r = 1;
+				e->g = 1;
+				e->b = 1;
+				draw_img(e);
+
+			}
+		}
 	}
 }
 
