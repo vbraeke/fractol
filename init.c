@@ -41,8 +41,6 @@ int		key_event(int keycode, t_env *e)
 		ft_putendl("FRACT'OL QUIT");
 		exit(0);
 	}
-	printf("x1 = %f y2 = %f\n", e->x1, e->y1);
-	printf("zoom  = %f", e->zoom);
 	(keycode == LEFT) ? e->x1 += 0.1 : 0;
 	(keycode == RIGHT) ? e->x1 -= 0.1 : 0;
 	(keycode == DOWN) ? e->y1 += 0.1 : 0;
@@ -51,6 +49,7 @@ int		key_event(int keycode, t_env *e)
 	(keycode == MORE) ? e->zoom += 30 : 0;
 	(keycode == MUL) ? e->max += 1 : 0;
 	(keycode == DIV) ? e->max -= 1 : 0;
+	free(e->data);
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
 	(e->ftype == 1) ? draw_mandle(e) : 0;
@@ -86,7 +85,7 @@ void	init_mj(t_env *e)
 	if (e->ftype == 2)
 	{
 		init_julia(e);
-		mlx_put_image_to_window(e->mlx, e->win, e->img, e->pos_x, e->pos_y);
+		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 		mlx_key_hook(e->win, key_event, e);
 		mlx_hook(e->win, 6, (1L << 6), motion_notif, e);
 		mlx_mouse_hook(e->win, ft_mouse, e);

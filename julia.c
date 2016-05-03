@@ -78,7 +78,5 @@ void	init_julia(t_env *e)
 	e->y2 = 2;
 	e->zoom = 250;
 	e->max = 10;
-	e->pos_x = 0;
-	e->pos_y = 0;
 	set_julia(e);
 }

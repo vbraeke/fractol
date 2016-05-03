@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include <mlx.h>
-# include "key.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -51,8 +50,6 @@ typedef	struct	s_env
 	float		y;
 	int			ptr_x;
 	int			ptr_y;
-	int			pos_x;
-	int			pos_y;
 	int			i;
 	int			ftype;
 	int			bpp;
