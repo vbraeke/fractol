@@ -88,5 +88,6 @@ void			ft_opt();
 void			set_color(t_env *e);
 void			init_mix(t_env *e);
 void			set_white(t_env *e);
+void			ft_reset(t_env *e);
 
 #endif

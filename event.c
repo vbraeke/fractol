@@ -22,6 +22,14 @@ void	draw_img(t_env *e)
 	e->data[n + 2] = e->b;
 }
 
+void	ft_reset(t_env *e)
+{
+	(e->ftype == 1) ? init_mandle(e) : 0;
+	(e->ftype == 2) ? init_julia(e) : 0;
+	(e->ftype == 3) ? init_boat(e) : 0;
+	(e->ftype == 4) ? init_mix(e) : 0;
+}
+
 void	init_mlx(t_env *e)
 {
 	e->mlx = mlx_init();

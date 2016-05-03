@@ -49,6 +49,7 @@ int		key_event(int keycode, t_env *e)
 	(keycode == MORE) ? e->zoom += 30 : 0;
 	(keycode == MUL) ? e->max += 1 : 0;
 	(keycode == DIV) ? e->max -= 1 : 0;
+	(keycode == SPACE) ? ft_reset(e) : 0;
 	free(e->data);
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
