@@ -16,15 +16,12 @@ void	set_julia(t_env *e)
 {
 	e->imgx = 500;
 	e->imgy = 500;
-	
 	e->x = 0;
 	while (e->x < e->imgx)
 	{
-
-			e->y = 0;
+		e->y = 0;
 		while (e->y < e->imgy)
 		{
-			
 			e->z_i = e->y / e->zoom + e->y1;
 			e->z_r = e->x / e->zoom + e->x1;
 			e->i = 0;
@@ -43,29 +40,23 @@ void	ft_connectj(t_env *e)
 		e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
 		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 		e->i++;
-		if(e->i == e->max)
-		{
-		
+		if (e->i == e->max)
 			draw_img(e);
-
-		}
 		else
-		{	
-			if (e->i % 2 == 0 )
+		{
+			if (e->i % 2 == 0)
 			{
 				e->r = 0;
 				e->g = e->i * 180 / e->max;
 				e->b = e->i * 30 / e->max;
 				draw_img(e);
-
-			}	
+			}
 			else
 			{
 				e->r = 1;
 				e->g = 1;
 				e->b = 1;
 				draw_img(e);
-
 			}
 		}
 	}

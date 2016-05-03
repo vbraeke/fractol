@@ -28,7 +28,6 @@ void	draw_boat(t_env *e)
 	e->x = 0;
 	e->imgx = 500;
 	e->imgy = 500;
-
 	while (e->x < e->imgx)
 	{
 		e->y = 0;
@@ -57,17 +56,15 @@ void	ft_connectb(t_env *e)
 		e->i++;
 		if (e->i == e->max)
 		{
-		
 			e->b = e->i * 255 / e->max;
 			e->r = 0;
 			e->g = e->i * 255 / e->max;
 			draw_img(e);
 			e->b = 0;
-			 e->r = 0;
-			 e->g = 0;
-		
+			e->r = 0;
+			e->g = 0;
 		}
-		else 
+		else
 		{
 			e->b = e->i * 150 / e->max;
 			e->r = 0;
@@ -75,9 +72,7 @@ void	ft_connectb(t_env *e)
 			draw_img(e);
 			e->b = 0;
 			e->r = 0;
-			e->g  = 0;
-		
+			e->g = 0;
 		}
 	}
 }
-

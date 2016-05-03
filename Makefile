@@ -12,16 +12,16 @@
 
 NAME = fractol
 
-FLAGS = -lmlx  -framework OpenGL -framework AppKit
+FLAGSMLX = -lmlx  -framework OpenGL -framework AppKit
 
+FLAGS = -Wall -Wextra -Werror
 
-
-SRC = main.c libft/libft.a julia.c init.c mandle.c test.c third.c event.c
+SRC = main.c libft/libft.a julia.c init.c mandle.c burn.c mix.c event.c
 
 $(NAME):
 	@make -C libft/
 	@echo Libft created ! 1/5
-	@gcc -o $(NAME) $(FLAGS) $(SRC)
+	@gcc $(FLAGS) -o $(NAME) $(FLAGSMLX) $(SRC)
 	@echo Compiled ! 2/5
 	
 clean:	

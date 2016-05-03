@@ -14,7 +14,7 @@
 
 void	draw_img(t_env *e)
 {
-	int 	n;
+	int		n;
 
 	n = e->x * e->bpp / 8 + e->y * e->len;
 	e->data[n] = e->r;
@@ -35,7 +35,7 @@ void	set_color(t_env *e)
 	if (e->r > 140)
 		e->r = 10;
 	if (e->r > 140)
-		e->g =10;
+		e->g = 10;
 	if (e->r > 140)
-		e->b =10;
+		e->b = 10;
 }

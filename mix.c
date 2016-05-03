@@ -28,7 +28,6 @@ void	draw_mix(t_env *e)
 	e->imgx = 500;
 	e->imgy = 500;
 	e->x = 0;
-	
 	while (e->x < e->imgx)
 	{
 		e->y = 0;
@@ -48,26 +47,23 @@ void	draw_mix(t_env *e)
 
 void	ft_connectt(t_env *e)
 {
-			while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
-			{
-				e->tmp = e->z_r;
-				e->z_r = -(e->z_r * e->z_r - e->z_i * e->z_i) + e->c_r;
-				e->z_i = 2 * e->z_i * e->tmp + e->c_i;
-				e->i++;
-				if(e->i == e->max)
-				{
-	
-					draw_img(e);
-				}
-				else
-				{
-					e->r = 0;
-					e->g = 0;
-					e->b = e->i * 255 / e->max;
-					draw_img(e);
-					e->r = 0;
-					e->g = 0;
-					e->b = 0;
-				}
-			}
+	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
+	{
+		e->tmp = e->z_r;
+		e->z_r = -(e->z_r * e->z_r - e->z_i * e->z_i) + e->c_r;
+		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
+		e->i++;
+		if (e->i == e->max)
+			draw_img(e);
+		else
+		{
+			e->r = 0;
+			e->g = 0;
+			e->b = e->i * 255 / e->max;
+			draw_img(e);
+			e->r = 0;
+			e->g = 0;
+			e->b = 0;
+		}
+	}
 }

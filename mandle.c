@@ -12,13 +12,11 @@
 
 #include "all.h"
 
-
 void	draw_mandle(t_env *e)
 {
 	e->imgx = 500;
 	e->imgy = 500;
 	e->x = 0;
-	
 	while (e->x < e->imgx)
 	{
 		e->y = 0;
@@ -44,11 +42,8 @@ void	ft_connectm(t_env *e)
 		e->z_r = e->z_r * e->z_r - e->z_i * e->z_i + e->c_r;
 		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 		e->i++;
-		if(e->i == e->max)
-		{
-
+		if (e->i == e->max)
 			draw_img(e);
-		}
 		else
 		{
 			e->r = 0;

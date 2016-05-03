@@ -40,7 +40,7 @@ int		frac_type(int ac, char **av)
 	return (0);
 }
 
-void	ft_opt()
+void	ft_opt(void)
 {
 	ft_putendl("\nFRACT_OL OPTIONS:");
 	ft_putendl("\nZOOM +                 : 'SCROLL UP' or '*'");
@@ -55,10 +55,10 @@ void	ft_opt()
 	ft_putendl("\nMOUSE MOTION NOTIFY    : MOUSE ROTATION 'LEFT' and 'RIGHT'");
 }
 
-int 	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_env e;
 
 	init_env(&e, ac, av);
-	return(0);
+	return (0);
 }

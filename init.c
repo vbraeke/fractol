@@ -12,20 +12,18 @@
 
 #include "all.h"
 
-void	ft_zoom(t_env *e)
-{
-
-}
-
 int		ft_mouse(int button, int a, int b, t_env *e)
 {
+	int		tmp1;
+	int		tmp2;
+
+	tmp1 = a;
+	tmp2 = b;
 	if (button == 4 || button == 7)
-	{
 		e->zoom += 30;
-	}
 	if (button == 5 || button == 6)
 		e->zoom -= 30;
-	//free(e->data);
+	free(e->data);
 	e->img = mlx_new_image(e->mlx, 1000, 1000);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->len, &e->endian);
 	(e->ftype == 1) ? draw_mandle(e) : 0;
@@ -36,8 +34,7 @@ int		ft_mouse(int button, int a, int b, t_env *e)
 	return (0);
 }
 
-
-int	key_event(int keycode, t_env *e)
+int		key_event(int keycode, t_env *e)
 {
 	if (keycode == ESC)
 	{
@@ -62,11 +59,8 @@ int	key_event(int keycode, t_env *e)
 	return (0);
 }
 
-int 	motion_notif(int x, int y, t_env *e)
+int		motion_notif(int x, int y, t_env *e)
 {
-	//e->ptr_x = x;
-	//e->ptr_y = y,
-
 	if (x < 250 && x > 0 && y < 500 && y > 0)
 	{
 		e->c_i -= 0.01;
@@ -94,7 +88,6 @@ void	init_mj(t_env *e)
 		mlx_key_hook(e->win, key_event, e);
 		mlx_hook(e->win, 6, (1L << 6), motion_notif, e);
 		mlx_mouse_hook(e->win, ft_mouse, e);
-
 	}
 	else if (e->ftype == 1)
 	{
@@ -102,13 +95,11 @@ void	init_mj(t_env *e)
 		mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 		mlx_hook(e->win, 2, 1L << 0, key_event, e);
 		mlx_mouse_hook(e->win, ft_mouse, e);
-
 	}
-} 
+}
 
 void	init_env(t_env *e, int ac, char **av)
 {
-
 	e->ftype = frac_type(ac, av);
 	init_mlx(e);
 	ft_opt();
@@ -129,4 +120,3 @@ void	init_env(t_env *e, int ac, char **av)
 	init_mj(e);
 	mlx_loop(e->mlx);
 }
-
