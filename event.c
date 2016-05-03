@@ -32,10 +32,7 @@ void	init_mlx(t_env *e)
 
 void	set_color(t_env *e)
 {
-	if (e->r > 140)
-		e->r = 10;
-	if (e->r > 140)
-		e->g = 10;
-	if (e->r > 140)
-		e->b = 10;
+	e->r = e->i * 255 / e->max;
+	e->g = e->i * 255 / e->max;
+	e->b = e->i * 255 / e->max;
 }

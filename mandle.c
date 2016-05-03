@@ -34,6 +34,22 @@ void	draw_mandle(t_env *e)
 	}
 }
 
+void	check_colorm(t_env *e)
+{
+	if (e->i % 2 == 0)
+	{
+		set_color(e);
+		draw_img(e);
+	}
+	else
+	{
+		e->r = 0;
+		e->g = 0;
+		e->b = e->i * 255 / e->max;
+		draw_img(e);
+	}
+}
+
 void	ft_connectm(t_env *e)
 {
 	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
@@ -43,27 +59,24 @@ void	ft_connectm(t_env *e)
 		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 		e->i++;
 		if (e->i == e->max)
-			draw_img(e);
-		else
 		{
 			e->r = 0;
 			e->g = 0;
-			e->b = e->i * 255 / e->max;
+			e->b = 130;
 			draw_img(e);
-			e->r = 0;
-			e->g = 0;
-			e->b = 0;
 		}
+		else
+			check_colorm(e);
 	}
 }
 
 void	init_mandle(t_env *e)
 {
-	e->x1 = -2.1;
-	e->x2 = 0.6;
+	e->x1 = -1.7;
+	e->x2 = 1.0;
 	e->y1 = -1.2;
 	e->y2 = 1.2;
-	e->zoom = 200;
-	e->max = 40;
+	e->zoom = 230;
+	e->max = 15;
 	draw_mandle(e);
 }

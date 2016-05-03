@@ -88,6 +88,8 @@ void			ft_connectb(t_env *e);
 void			ft_connectj(t_env *e);
 void			init_mj(t_env *e);
 void			ft_opt();
+void			set_color(t_env *e);
 void			init_mix(t_env *e);
+void			set_white(t_env *e);
 
 #endif

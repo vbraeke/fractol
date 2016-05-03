@@ -32,6 +32,22 @@ void	set_julia(t_env *e)
 	}
 }
 
+void	check_colorj(t_env *e)
+{
+	if (e->i % 2 == 0)
+	{
+		set_color(e);
+		draw_img(e);
+	}
+	else
+	{
+		e->r = 0;
+		e->g = e->i * 250 / e->max;
+		e->b = 0;
+		draw_img(e);
+	}
+}
+
 void	ft_connectj(t_env *e)
 {
 	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
@@ -41,24 +57,14 @@ void	ft_connectj(t_env *e)
 		e->z_i = 2 * e->z_i * e->tmp + e->c_i;
 		e->i++;
 		if (e->i == e->max)
-			draw_img(e);
-		else
 		{
-			if (e->i % 2 == 0)
-			{
-				e->r = 0;
-				e->g = e->i * 180 / e->max;
-				e->b = e->i * 30 / e->max;
-				draw_img(e);
-			}
-			else
-			{
-				e->r = 1;
-				e->g = 1;
-				e->b = 1;
-				draw_img(e);
-			}
+			e->r = 0;
+			e->g = 130;
+			e->b = 0;
+			draw_img(e);
 		}
+		else
+			check_colorj(e);
 	}
 }
 
@@ -66,9 +72,6 @@ void	init_julia(t_env *e)
 {
 	e->c_r = -0.70;
 	e->c_i = 0.27015;
-	e->r = 0;
-	e->g = 0;
-	e->b = 0;
 	e->x1 = -1.3;
 	e->x2 = 2;
 	e->y1 = -1.2;

@@ -14,12 +14,12 @@
 
 void	init_mix(t_env *e)
 {
-	e->x1 = -2.1;
+	e->x1 = -3.199;
 	e->x2 = 0.6;
-	e->y1 = -1.2;
+	e->y1 = -2.9;
 	e->y2 = 1.2;
-	e->zoom = 200;
-	e->max = 40;
+	e->zoom = 80;
+	e->max = 8;
 	draw_mix(e);
 }
 
@@ -57,9 +57,7 @@ void	ft_connectt(t_env *e)
 			draw_img(e);
 		else
 		{
-			e->r = 0;
-			e->g = 0;
-			e->b = e->i * 255 / e->max;
+			set_color(e);
 			draw_img(e);
 			e->r = 0;
 			e->g = 0;

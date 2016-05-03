@@ -41,6 +41,8 @@ int		key_event(int keycode, t_env *e)
 		ft_putendl("FRACT'OL QUIT");
 		exit(0);
 	}
+	printf("x1 = %f y2 = %f\n", e->x1, e->y1);
+	printf("zoom  = %f", e->zoom);
 	(keycode == LEFT) ? e->x1 += 0.1 : 0;
 	(keycode == RIGHT) ? e->x1 -= 0.1 : 0;
 	(keycode == DOWN) ? e->y1 += 0.1 : 0;

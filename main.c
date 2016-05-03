@@ -20,7 +20,8 @@ void	error_arg(int n)
 		ft_putstr("Incorrect paramater\n");
 	ft_putstr("FRACT'OL : Please reboot this program with one");
 	ft_putstr(" of the following parameter :\n");
-	ft_putstr("M for Mandelbrot\nJ for Julia\nB for Boat\nT for a mix of Mandelbrot and Newton");
+	ft_putstr("M for Mandelbrot\nJ for Julia\n");
+	ft_putstr("B for Boat\nT for a mix of Mandelbrot and Newton");
 	exit(EXIT_FAILURE);
 }
 

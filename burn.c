@@ -14,11 +14,11 @@
 
 void	init_boat(t_env *e)
 {
-	e->x1 = -2.1;
+	e->x1 = -1.8;
 	e->x2 = 2.6;
-	e->y1 = -2.2;
+	e->y1 = -0.1;
 	e->y2 = 2.2;
-	e->zoom = 200;
+	e->zoom = 4430;
 	e->max = 30;
 	draw_boat(e);
 }
@@ -45,6 +45,22 @@ void	draw_boat(t_env *e)
 	}
 }
 
+void	check_colorb(t_env *e)
+{
+	if (e->i % 2 == 0)
+	{
+		set_color(e);
+		draw_img(e);
+	}
+	else
+	{
+		e->b = 0;
+		e->r = e->i * 255 / e->max;
+		e->g = 0;
+		draw_img(e);
+	}
+}
+
 void	ft_connectb(t_env *e)
 {
 	while (e->z_r * e->z_r + e->z_i * e->z_i < 4 && e->i < e->max)
@@ -56,23 +72,12 @@ void	ft_connectb(t_env *e)
 		e->i++;
 		if (e->i == e->max)
 		{
-			e->b = e->i * 255 / e->max;
-			e->r = 0;
-			e->g = e->i * 255 / e->max;
-			draw_img(e);
-			e->b = 0;
+			e->b = 130;
 			e->r = 0;
 			e->g = 0;
+			draw_img(e);
 		}
 		else
-		{
-			e->b = e->i * 150 / e->max;
-			e->r = 0;
-			e->g = 0;
-			draw_img(e);
-			e->b = 0;
-			e->r = 0;
-			e->g = 0;
-		}
+			check_colorb(e);
 	}
 }
