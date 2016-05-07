@@ -52,7 +52,7 @@ void	ft_opt(void)
 	ft_putendl("MOVE LEFT              : 'KEY LEFT'");
 	ft_putendl("CLEARNESS +            : '+'");
 	ft_putendl("CLEARNESS -            : '-'");
-	ft_putendl("RESET BASE PARAMETER    : 'SPACE'");
+	ft_putendl("RESET BASE PARAMETER   : 'SPACE'");
 	ft_putendl("\nFOR JULIA FRACTAL:");
 	ft_putendl("\nMOUSE MOTION NOTIFY    : MOUSE ROTATION 'LEFT' and 'RIGHT'");
 }

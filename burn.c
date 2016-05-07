@@ -19,7 +19,7 @@ void	init_boat(t_env *e)
 	e->y1 = -0.1;
 	e->y2 = 2.2;
 	e->zoom = 4430;
-	e->max = 30;
+	e->max = 20;
 	draw_boat(e);
 }
 

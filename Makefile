@@ -6,7 +6,7 @@
 #    By: mikus <mikus@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 17:41:41 by vbraeke           #+#    #+#              #
-#    Updated: 2016/05/02 23:24:56 by mikus            ###   ########.fr        #
+#    Updated: 2016/05/07 15:37:36 by vbraeke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fractol
 
 FLAGSMLX = -lmlx  -framework OpenGL -framework AppKit
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -O3 
 
 SRC = main.c libft/libft.a julia.c init.c mandle.c burn.c mix.c event.c
 
@@ -33,6 +33,6 @@ fclean: clean
 	@echo Fcleaned ! 4/5
 
 re : fclean $(NAME)
-	@echo  On recommance tout ma biche !  5/5
+	@echo  SUCCESS !  5/5
 
 .PHONY: all clean fclean re
